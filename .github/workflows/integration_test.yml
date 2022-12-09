@@ -69,6 +69,7 @@ jobs:
           docker load -i image.tar
           docker inspect ${OPERATOR_IMAGE}
           docker tag ${OPERATOR_IMAGE} ${OPERATOR_IMAGE}:ci-build
+          kind load docker-image "${OPERATOR_IMAGE}:ci-build"
 
       - name: Install kernel headers
         run: |
